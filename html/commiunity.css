@@ -1,0 +1,28 @@
+a:link { color: red; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: blue; text-decoration: underline;}
+
+.recipes{
+    padding: 0;
+}
+
+.pagination{
+    width: 20%;
+    margin: auto;
+    margin-left: 40%;
+    text-align: center;
+}
+
+.writeBtn{
+    margin-right: 1%;
+    float: right;
+}
+
+.searchBtn{
+    width: 30px;
+    height: 27px;
+}
+.searchForm{
+    float: right;
+    margin: 10px;
+}

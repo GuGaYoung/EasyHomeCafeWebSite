@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    background-color: #F0F0F0;
+    font-family: 'Liberation Sans', Arial, sans-serif;
+}
+
+.writeBtn{
+    margin: 1%;
+    float: right;
+}
+
+.recipe-img{
+    margin-left: 10px;
+    width: 170px;
+    height: 170px;
+}
+
+.col-md-8{
+    width: 90%;
+}
+
+.cardimage{
+    padding: 10px;
+}

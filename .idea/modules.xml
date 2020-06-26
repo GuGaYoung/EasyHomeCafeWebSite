@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/easyHomeCafe_Ubuntu.iml" filepath="$PROJECT_DIR$/.idea/easyHomeCafe_Ubuntu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/html/image/.idea/image.iml" filepath="$PROJECT_DIR$/html/image/.idea/image.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../untitled/.idea/untitled.iml" filepath="$PROJECT_DIR$/../untitled/.idea/untitled.iml" />
+    </modules>
+  </component>
+</project>

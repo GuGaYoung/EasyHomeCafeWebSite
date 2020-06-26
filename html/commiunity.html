@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="commiunity.css">
+    <title>EasyHomeCafe-recipe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/264954fef8.js" crossorigin="anonymous"></script>
+    <script src="commiunity.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <div class="haderLogo">
+        <a class="text-monospace" hreflang="">EasyHomeCafe</a>
+        <i class="fas fa-coffee"></i>
+    </div>
+</header>
+
+<nav class="navbar">
+    <ul class="navbarMenu">
+        <li><a class="text-white" href="main.html">Home</a></li>
+        <li><a class="text-white" href="recipe.html">Recipe</a></li>
+        <li><a class="text-white" href="commiunity.html">Community</a></li>
+        <li><a class="text-white" href="sell.html">Selling</a></li>
+        <li><a class="text-white" href="login.php">LogIn</a></li>
+    </ul>
+</nav>
+
+<main class="main">
+    <ul class="recipes">
+        <table class="table table-striped">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>날짜</th>
+                <th>조회수</th>
+            </tr>
+            <tbody class="border border-secondary">
+            <tr>
+                <td>1</td>
+                <td>과일빙수만들기</td>
+                <td>초코초코</td>
+                <td>06/16</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1일 2아메리카노 중입니다</td>
+                <td>일이삼</td>
+                <td>06/15</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>달고나커피 레시피 공유함!</td>
+                <td>대왕</td>
+                <td>06/15</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>망고스무디 만들기 도전</td>
+                <td>제빵사</td>
+                <td>06/14</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>라떼 만든 후기</td>
+                <td>카페조아</td>
+                <td>06/14</td>
+                <td>15</td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="writeBtn btn btn-secondary" onclick="location.href='writeCommiunityPost.html'">글쓰기</button>
+        <div class="text-center">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </ul>
+</main>
+</body>
+</html>
