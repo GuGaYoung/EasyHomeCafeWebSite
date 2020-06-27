@@ -18,7 +18,7 @@ echo $email;
 
 //아이디 중복검사.
 
-$sql = "SELECT * FROM userTable WHERE id = '{$id}'";
+$sql = "SELECT * FROM user WHERE id = '{$id}'";
 $res = $mysqli_connect->query($sql);
 if($res->num_rows >= 1){
     //echo '이미 존재하는 아이디가 있습니다.';
@@ -55,7 +55,7 @@ if($name == ''){
 //echo '올바른 이메일 주소가 맞습니다.';
 
 //이제부터 넣기 시작
-$sql = "INSERT INTO userTable VALUES('$id','$password','$name','$email')";
+$sql = "INSERT INTO user VALUES(1, '$id','$password','$email')";
 
 if($mysqli_connect->query($sql) === true){
     //echo '회원가입 성공';

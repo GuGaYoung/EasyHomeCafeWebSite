@@ -6,7 +6,7 @@ session_start();
 $id = $_POST['inputID'];
 $password = $_POST['inputPassword'];
 
-$query = "select * from userTable where id='$id' and password='$password'";
+$query = "select * from user where id='$id' and password='$password'";
 $result = mysqli_query($mysqli_connect, $query);
 $row = mysqli_fetch_array($result);
 
@@ -27,3 +27,4 @@ if($id==$row['id'] && $password==$row['password']){ // id와 pw가 맞다면 log
 
 }
 ?>
+
