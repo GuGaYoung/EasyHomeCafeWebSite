@@ -17,7 +17,7 @@ if($id==$row['id'] && $password==$row['password']){ // id와 pw가 맞다면 log
     //setcookie("user_id", "$id", 0, "/");
     //setcookie("user_name", "$user_name", 0, "/");
 
-    echo "<script>location.href='myInformation.php';</script>";
+    echo "<script>location.href='main.php';</script>";
 
 }else{
     // id 또는 pw가 다르다면 login 폼으로
