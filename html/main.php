@@ -6,7 +6,9 @@ include "headerNav.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css">
     <title>EasyHomeCafe-main</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -16,7 +18,7 @@ include "headerNav.php";
 <main class="main">
     <div class="mainTodayRecipe">
         <b class="mainSubTitleText">Today's recipe</b>
-        <div recommendDrinks>
+        <div class= "recommendDrinks">
             <img class="drinksImage todayRecipeImage" src="image/americano.png">
             <div class="RecipeText">
                 <p><b>준비물 : 에스프레소용 커피 콩 14-18그램, 뜨겁거나 거의 끓을 정도의 물 에스프레소 머신 저울분쇄기탬퍼</b></p>
@@ -59,7 +61,6 @@ include "headerNav.php";
                     <p class="productInfo">500ml 3300원 1L 5200원</p>
                 </div>
             </div>
-
 
             <div class="card" style="width: 20rem;">
                 <img src="image/ice.png" class="mx-auto drinksImage">
