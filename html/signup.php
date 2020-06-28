@@ -55,13 +55,14 @@ if($name == ''){
 //echo '올바른 이메일 주소가 맞습니다.';
 
 //이제부터 넣기 시작
-$sql = "INSERT INTO user VALUES(1, '$id','$password','$email')";
+$userNum = "SELECT COUNT(user) FROM easyhomecafeDB" + 1;
+$sql = "INSERT INTO user VALUES('$userNum', '$id','$password','$email')";
 
 if($mysqli_connect->query($sql) === true){
     //echo '회원가입 성공';
     echo "<script>location.href='login.php'</script>";
 }else{
-    echo mysqli_error($mysqli_connect);
-    echo "실패";
+    //echo mysqli_error($mysqli_connect);
+    //echo "실패";
 }
 ?>
