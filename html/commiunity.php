@@ -1,7 +1,19 @@
+<?php
+
+include "headerNav.php";
+$mysqli_connect = connect_Mysqli();
+
+$pageNum = 6;
+$pageTotal = "SELECT COUNT(commiunity) FROM easyhomecafeDB";
+$start = $_GET['start'];
+if(!$start) $start=0;
+$sql = "SELECT * FROM commiunity ORDER BY idx DESC limit $start, $pageNum";
+$result = $mysqli_connect->query($sql);
+?>
+
 <!DOCTYPE html>
 
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>EasyHomeCafe-commiunity</title>
@@ -9,22 +21,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-
-<?php
-include "headerNav.php";
-
-$mysqli_connect = mysqli_connect("localhost","root","mYaU18EAsse5#12aA3%8pO");
-$db = mysqli_select_db($mysqli_connect, "easyHomeCafe");
-
-$pageNum = 6;
-$sql = "SELECT * FROM commiunityTable ORDER BY num DESC";
-$result = $mysqli_connect->query($sql);
-$pageTotal = mysqli_num_rows($result);
-$start = $_GET['start'];
-if(!$start) $start=0;
-$sql = "SELECT * FROM commiunityTable ORDER BY num DESC limit $start, $pageNum";
-$result = $mysqli_connect->query($sql);
-?>
 
 <br />
 <main>
@@ -49,11 +45,11 @@ $result = $mysqli_connect->query($sql);
             while($row=$result->fetch_array()){
 
                 echo "<tr>";
-                echo "<td>$row[num]</td>";
+                echo "<td>$row[idx]</td>";
                 echo "<td>$row[title]</td>";
-                echo "<td>$row[writer]</td>";
+                echo "<td>$row[user_idx]</td>";
                 echo "<td>$row[date]</td>";
-                echo "<td>$row[views]</td>";
+                echo "<td>$row[view]</td>";
                 echo "<tr>";
             }
             ?>
