@@ -4,7 +4,9 @@ include "headerNav.php";
 $mysqli_connect = connect_Mysqli();
 
 $pageNum = 6;
-$pageTotal = "SELECT COUNT(commiunity) FROM easyhomecafeDB";
+$query = "select * from commiunity";
+$data = mysqli_query($mysqli_connect, $query);
+$pageTotal = mysqli_num_rows($data);
 $start = $_GET['start'];
 if(!$start) $start=0;
 $sql = "SELECT * FROM commiunity ORDER BY idx DESC limit $start, $pageNum";
@@ -62,9 +64,10 @@ $result = $mysqli_connect->query($sql);
     $pages = $pageTotal / $pageNum;
 
     echo "<div class = pagination>";
-    for($i=1; $i<$pages; $i++){
+    for($i=0; $i<$pages; $i++){
         $nextPage = $pageNum * $i;
-        echo "<button><a href=$_SERVER[PHP_SELF]?start=$nextPage>$i</a></button>";
+        $pageButtonNum = $i+1;
+        echo "<button><a href=$_SERVER[PHP_SELF]?start=$nextPage>$pageButtonNum</a></button>";
     }
     echo "</div>";
     ?>
