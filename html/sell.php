@@ -30,7 +30,7 @@ $pageTotal = mysqli_num_rows($result);
             echo "<div class=\"card-body\">";
             echo "<h5 class=\"card-title\">$row[name]</h5>";
             echo "<p class=\"card-text\">$row[information]  $row[price]원</p>";
-            echo "<button><a href=produceInfomation.php?num=$row[num]>자세히보기</a></button>";
+            echo "<button><a href=productInformation.php?idx=$row[idx]>자세히보기</a></button>";
             echo "</div>";
             echo "</div>";
             echo "</div>";

@@ -1,15 +1,11 @@
 <?php
 include "headerNav.php";
+$mysqli_connect = connect_Mysqli();
+$productNum = $_GET['idx'];
 
-$mysqli_connect = mysqli_connect("localhost","root","mYaU18EAsse5#12aA3%8pO");
-$db = mysqli_select_db($mysqli_connect, "easyHomeCafe");
-$productNum = $_GET['num'];
-
-$query = "select * from productTable where num='$productNum'";
-
+$query = "select * from product where idx='$productNum'";
 $result = mysqli_query($mysqli_connect, $query);
 $row = mysqli_fetch_array($result);
-
 ?>
 
 <html lang="en">
@@ -27,9 +23,9 @@ $row = mysqli_fetch_array($result);
         </div>
         <div class="product-info">
             <div class="product-text">
-                <h1><?php echo $row['productName'];?></h1>
-                <h2>가격 : <?php echo $row['productPrice'];?>원</h2>
-                <p><?php echo $row['productInformation'];?></p>
+                <h1><?php echo $row['name'];?></h1>
+                <h2>가격 : <?php echo $row['price'];?>원</h2>
+                <p><?php echo $row['information'];?></p>
             </div>
             <div class="product-price-btn">
                 <button type="button">장바구니 담기</button>
