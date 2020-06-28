@@ -55,8 +55,7 @@ if($name == ''){
 //echo '올바른 이메일 주소가 맞습니다.';
 
 //이제부터 넣기 시작
-$userNum = "SELECT COUNT(user) FROM easyhomecafeDB" + 1;
-$sql = "INSERT INTO user VALUES('$userNum', '$id','$password','$email')";
+$sql = "INSERT INTO user (id, password, email) VALUES('$id','$password','$email')";
 
 if($mysqli_connect->query($sql) === true){
     //echo '회원가입 성공';
