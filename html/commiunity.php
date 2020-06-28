@@ -46,8 +46,8 @@ $result = $mysqli_connect->query($sql);
 
                 echo "<tr>";
                 echo "<td>$row[idx]</td>";
-                echo "<td>$row[title]</td>";
-                echo "<td>$row[user_idx]</td>";
+                echo "<td><a href=commiunityPost.php?idx=$row[idx]>$row[title]</a></td>";
+                echo "<td>$row[writer]</td>";
                 echo "<td>$row[date]</td>";
                 echo "<td>$row[view]</td>";
                 echo "<tr>";
