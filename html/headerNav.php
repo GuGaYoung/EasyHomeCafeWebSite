@@ -1,10 +1,16 @@
+<?php
+function connect_Mysqli(){
+    $mysqli_connect = mysqli_connect("localhost","root","mYaU18EAsse5#12aA3%8pO", "easyhomecafeDB");
+    return $mysqli_connect;
+}
+?>
+
 <html>
 <head>
     <link rel="stylesheet" href="headerNav.css">
 </head>
 <body>
 <header class="header">
-    <?php include 'mysqlConnect.php';?>
     <div class="haderLogo">
         <a class="text-monospace" hreflang="">EasyHomeCafe</a>
         <i class="fas fa-coffee"></i>
