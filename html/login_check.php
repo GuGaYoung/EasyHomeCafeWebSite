@@ -12,9 +12,9 @@ $row = mysqli_fetch_array($result);
 
 if(password_verify($password, $row['password'])){
     $_SESSION[ 'session_user_id' ] = $id;
-    echo $_SESSION[ 'session_user_id' ];
-    //setcookie("user_id", "$id", 0, "/");
-    //setcookie("user_name", "$user_name", 0, "/");
+    $_SESSION[ 'session_user_idx' ] = $row['idx'];
+    //echo $_SESSION[ 'session_user_id' ];
+    //echo $_SESSION[ 'session_user_idx' ];
 
     echo "<script>location.href='main.php';</script>";
 }else{

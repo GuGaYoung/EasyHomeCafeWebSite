@@ -20,6 +20,7 @@ $mysqli_connect->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EasyHomeCafe-commiunitypost</title>
+    <link rel="stylesheet" href="commiunityPost.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
@@ -38,12 +39,31 @@ $mysqli_connect->query($sql);
             </td>
         </tr>
         <td colspan="3">
+            <?php
+            $user_idx = $_SESSION['session_user_idx'];
+
+            if($row['user_idx'] == $user_idx){
+                ?>
             <input type="button" class="btn btn-secondary" value="수정하기" onclick="location.href='commiunityContentModify.php?idx=<?php echo $row['idx'];?>'" />
             <input type="button" class="btn btn-secondary" value="삭제하기" onclick="location.href='commiunityContentDelete.php?idx=<?php echo $row['idx'];?>'" />
+            <?php
+            }else{
+            ?>
+            <input type="button" class="btn btn-secondary" value="수정하기" onclick="modifyDelete_button();" />
+            <input type="button" class="btn btn-secondary" value="삭제하기" onclick="modifyDelete_button();" />
+                <script>
+                    function modifyDelete_button() {
+                        alert("작성자만 글을 삭제/수정할 수 있습니다.");
+                    }
+                </script>
+                <?php
+            }
+            ?>
             <input type="button" class="btn btn-secondary" value="글 목록으로... " onclick="location.href='commiunity.php'" />
         </td>
     </table>
 </main>
+
 </body>
 
 </html>
