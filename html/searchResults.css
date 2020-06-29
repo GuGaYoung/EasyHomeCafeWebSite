@@ -1,0 +1,26 @@
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: black; text-decoration: underline;}
+
+h1{
+    margin-top: 1%;
+    text-align: center;
+}
+
+.searchResults{
+    padding: 0;
+}
+
+.writeBtn{
+    margin-right: 1%;
+    float: right;
+}
+
+.searchBtn{
+    width: 30px;
+    height: 27px;
+}
+.searchForm{
+    float: right;
+    margin: 10px;
+}
