@@ -1,14 +1,11 @@
 <?php
-    include "headerNav.php";
+include "headerNav.php";
+$mysqli_connect = connect_Mysqli();
+$contentNum = $_GET['idx'];
 
-    $mysqli_connect = mysqli_connect("localhost","root","mYaU18EAsse5#12aA3%8pO");
-    $db = mysqli_select_db($mysqli_connect, "easyHomeCafe");
-    $contentNum = $_GET['idx'];
-
-    $query = "select * from commiunityTable where idx='$contentNum'";
-    $result = mysqli_query($mysqli_connect, $query);
-    $row = mysqli_fetch_array($result);
-
+$query = "select * from commiunity where idx='$contentNum'";
+$result = mysqli_query($mysqli_connect, $query);
+$row = mysqli_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +27,15 @@
         </tr>
         <tr>
             <th width="70">내용: </th>
-            <td height="500"><?php echo $row['content'];?></td>
+            <td height="500">
+                <div><?php echo $row['content'];?></div>
+                <img src=<?php echo $row['image'];?>>
+            </td>
         </tr>
         <td colspan="3">
-            <input type="button" value="수정하기" onclick="location.href='commiunityContentModify.php?num=<?php echo $row['num'];?>'" />
-            <input type="button" value="삭제하기" onclick="location.href='commiunityContentDelete.php?num=<?php echo $row['num'];?>'" />
-            <input type="button" value="글 목록으로... " onclick="location.href='commiunity.php'" />
+            <input type="button" class="btn btn-secondary" value="수정하기" onclick="location.href='commiunityContentModify.php?idx=<?php echo $row['idx'];?>'" />
+            <input type="button" class="btn btn-secondary" value="삭제하기" onclick="location.href='commiunityContentDelete.php?idx=<?php echo $row['idx'];?>'" />
+            <input type="button" class="btn btn-secondary" value="글 목록으로... " onclick="location.href='commiunity.php'" />
         </td>
     </table>
 </main>
