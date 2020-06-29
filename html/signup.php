@@ -33,6 +33,7 @@ if($password !== $passwordCheck){
     exit;
 }else{
     //비밀번호를 암호화 처리.
+    $encrypted_passwd = password_hash($password, PASSWORD_DEFAULT);
     //$password = md5($password);
 }
 
@@ -55,13 +56,13 @@ if($name == ''){
 //echo '올바른 이메일 주소가 맞습니다.';
 
 //이제부터 넣기 시작
-$sql = "INSERT INTO user (id, password, email) VALUES('$id','$password','$email')";
+$sql = "INSERT INTO user (id, password, email) VALUES('$id','$encrypted_passwd','$email')";
 
 if($mysqli_connect->query($sql) === true){
     //echo '회원가입 성공';
     echo "<script>location.href='login.php'</script>";
 }else{
-    //echo mysqli_error($mysqli_connect);
+    echo mysqli_error($mysqli_connect);
     //echo "실패";
 }
 ?>
