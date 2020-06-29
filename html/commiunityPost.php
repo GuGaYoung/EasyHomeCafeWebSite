@@ -6,6 +6,11 @@ $contentNum = $_GET['idx'];
 $query = "select * from commiunity where idx='$contentNum'";
 $result = mysqli_query($mysqli_connect, $query);
 $row = mysqli_fetch_array($result);
+
+//조회수
+$currentView = $row['view']+ 1;
+$sql = "UPDATE commiunity SET view='$currentView' WHERE idx = '$contentNum'";
+$mysqli_connect->query($sql);
 ?>
 
 <!DOCTYPE html>
