@@ -59,7 +59,24 @@ $result = $mysqli_connect->query($sql);
         </table>
     </ul>
 
-    <button class="writeBtn btn btn-secondary" onClick="location.href='writeCommiunityPost.php'">글쓰기</button>
+    <?php
+    session_start();
+    if(empty($_SESSION['session_user_id'])){
+        ?>
+        <button class="writeBtn btn btn-secondary" onClick="writeButton_click();" >글쓰기</button>
+        <script>
+            function writeButton_click() {
+                alert("로그인을 해야 글을 작성할 수 있습니다.");
+            }
+        </script>
+    <?php
+    }else{
+    ?>
+        <button class="writeBtn btn btn-secondary" onClick="location.href='writeCommiunityPost.php'">글쓰기</button>
+        <?php
+    }
+    ?>
+
     <?php
     $pages = $pageTotal / $pageNum;
 
