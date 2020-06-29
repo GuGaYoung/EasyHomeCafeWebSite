@@ -27,7 +27,7 @@ $row = mysqli_fetch_array($result);
         <h3 class="writeText"> 글 수정 </h3>
         </thead>
         <tbody>
-        <form action="commiunityContentModifyOK.php?idx=<?php echo $row['idx'];?>" method="post">
+        <form action="commiunityContentModifyOK.php?idx=<?php echo $row['idx'];?>" method="post" enctype="multipart/form-data">
             <tr>
                 <th>제목: </th>
                 <td><textarea cols="90" name="title"><?php echo $row['title'];?></textarea ></td>
@@ -36,12 +36,11 @@ $row = mysqli_fetch_array($result);
                 <th>내용: </th>
                 <td height="500">
                     <div><textarea><?php echo $row['content'];?></textarea></div>
-                    <img src=<?php echo $row['image'];?>>
                 </td>
             </tr>
             <tr>
                 <th>첨부파일: </th>
-                <td><input type="file" placeholder="이미지를 선택하세요. " name="image" /></td>
+                <td><input type="file" placeholder="이미지를 선택하세요." name="image" /></td>
             </tr>
             <tr>
                 <td colspan="2">

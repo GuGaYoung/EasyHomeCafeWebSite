@@ -22,12 +22,6 @@ if(isset($_POST["submit"])) {
     }
 }
 
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo '<script type="text/javascript">alert("해당이미지는 이미 있습니다. 이미지의 이름을 바꿔주세요");</script>';
-    $uploadOk = 0;
-}
-
 // Check file size
 if ($_FILES["image"]["size"] > 500000) {
     echo '<script type="text/javascript">alert("파일의 크기가 너무 큽니다.");</script>';
