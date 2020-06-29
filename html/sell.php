@@ -26,7 +26,7 @@ $pageTotal = mysqli_num_rows($result);
         while($row=$result->fetch_array()){
             echo "<div class=\"col mb-4\">";
             echo "<div class=\"productCard card\">";
-            echo "<img src=\"image/coffeeMachine.png\" class=\"productImage card-img-top\">";
+            echo "<img src= $row[image] class=\"productImage card-img-top\">";
             echo "<div class=\"card-body\">";
             echo "<h5 class=\"card-title\">$row[name]</h5>";
             echo "<p class=\"card-text\">$row[information]  $row[price]원</p>";

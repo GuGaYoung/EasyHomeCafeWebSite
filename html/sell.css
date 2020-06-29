@@ -6,13 +6,6 @@ a:hover { color: white; text-decoration: underline;}
     padding: 0;
 }
 
-.pagination{
-    width: 20%;
-    margin: auto;
-    margin-left: 40%;
-    text-align: center;
-}
-
 .writeBtn{
     margin: 1%;
     float: right;
