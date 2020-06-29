@@ -13,7 +13,18 @@ include "headerNav.php";
     <title>EasyHomeCafe-main</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
+
+<?php
+    if(empty($_COOKIE['popname'])){
+?>
+<body onload="window.open('popup.php','','width=500px, height=600px, left=200px, top=200px, toolbar=0, status=yes, menubars=0, scrollbars=0, resizable=0, location=0, directories=0')">
+<?php
+    }else{
+?>
 <body>
+<?php
+    }
+?>
 
 <main class="main">
     <div class="mainTodayRecipe">
@@ -78,3 +89,7 @@ include "headerNav.php";
 </body>
 
 </html>
+
+
+
+
