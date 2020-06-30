@@ -50,7 +50,7 @@ img{
 .arrangement{
     position:absolute;
     left:50%;
-    margin-left:-250px;
+    margin-left:-380px;
     margin-top:30px;
     margin-bottom:30px;
 }
@@ -62,13 +62,13 @@ img{
 }
 
 .finalPrice{
-    margin-left: 240px;
+    margin-left: 180px;
     font-size: 20px;
     font-weight: bold;
     width: 20%;
 }
 
 .paymentBtn{
-    margin-left: 250px;
+    margin-left: 480px;
     font-weight: bold;
 }
