@@ -63,6 +63,36 @@ $mysqli_connect->query($sql);
         </td>
     </table>
 </main>
+<!--- 댓글 불러오기 -->
+<div class="reply_view">
+    <!--- 댓글 입력 폼 -->
+    <div class="reply_insert_form">
+        <form action="reply_ok.php?idx=<?php echo $contentNum; ?>" method="post">
+            <div>
+                <textarea name="content" class="reply_content" ></textarea>
+                <button class="reply_button btn btn-secondary">댓글</button>
+            </div>
+        </form>
+    </div>
+
+    <?php
+    $query = "select * from commiunity_reply where post_idx='".$contentNum."' order by idx desc";
+    $result = mysqli_query($mysqli_connect, $query);
+
+    while($row = $result->fetch_array()){
+        ?>
+        <div class="dap_lo">
+            <div><b><?php echo $row['writer'];?></b></div>
+            <div class="reply_content"><?php echo $row['content']; ?></div>
+            <div class="reply_date"><?php echo $row['date']; ?></div>
+            <div class="reply_edit_delete">
+                <a class="reply_edit" href="replyModifyOK.php">수정</a>
+                <a class="reply_delete" href="replyDeleteOK.php">삭제</a>
+            </div>
+            <hr>
+        </div>
+    <?php } ?>
+</div>
 
 </body>
 
