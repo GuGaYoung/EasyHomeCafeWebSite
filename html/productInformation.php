@@ -28,7 +28,7 @@ $row = mysqli_fetch_array($result);
                 <p><?php echo $row['information'];?></p>
             </div>
             <div class="product-price-btn">
-                <button type="button">장바구니 담기</button>
+                <button type="button" onClick="location.href='shoppingCart.php?idx=<?php echo $row['idx']; ?>'">장바구니 담기</button>
             </div>
         </div>
     </div>

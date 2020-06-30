@@ -3,8 +3,6 @@ include "headerNav.php";
 session_start();
 $session_user_id = $_SESSION['session_user_id'];
 
-//$cookie_user_id = $_COOKIE["user_id"];
-//$cookie_user_name = $_COOKIE["user_name"];
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +14,7 @@ $session_user_id = $_SESSION['session_user_id'];
     <title>EasyHomeCafe-myInformation</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script>
+        //todo 로그아웃을 하면 저장된 세션을 삭제
         function logout_button() {
             <?php
             //session_destroy();
@@ -38,6 +37,7 @@ $session_user_id = $_SESSION['session_user_id'];
     <hr>
 
     <h2>최근 본 상품</h2>
+    <h6><a class ="productDetails_recently" href=#>더보기</a></h6>
     <div class="row row-cols-1 row-cols-md-5" style="width: 100%;">
         <div class="col mb-4"></div>
         <div class="col mb-4">
@@ -73,6 +73,7 @@ $session_user_id = $_SESSION['session_user_id'];
     <hr>
 
     <h2>장바구니에 담은 상품</h2>
+    <h6><a class ="productDetails_cart" href=goToCart.php>더보기</a></h6>
     <div class="row row-cols-1 row-cols-md-5" style="width: 100%;">
         <div class="col mb-4"></div>
         <div class="col mb-4">
@@ -103,7 +104,6 @@ $session_user_id = $_SESSION['session_user_id'];
                 </div>
             </div>
         </div>
-        <div class="col mb-4"></div>
     </div>
     <hr>
 </main>
