@@ -26,9 +26,39 @@ $row = mysqli_fetch_array($result);
         </div>
         <div class="product-info">
             <div class="product-text">
+
                 <h1><?php echo $row['name'];?></h1>
                 <h2>가격 : <?php echo $row['price'];?>원</h2>
                 <p><?php echo $row['information'];?></p>
+                <span>주문수량 : </span>
+                <input type="text" name="num" value="1" id="num" class="num"/>
+                <img src="image/up-arrow.png" alt="" width="15px" height="15px" class="bt_up"/>
+                <img src="image/down-arrow.png" alt="" width="15px" height="15px" class="bt_down" />
+                <span>개</span>
+
+                <script>
+                    let productNum = 1;
+                    $(function(){
+
+                        $('.bt_up').click(function(){
+                            let n = $('.bt_up').index(this);
+                            let num = $(".num:eq("+n+")").val();
+                            num = $(".num:eq("+n+")").val(num*1+1);
+                        });
+                        $('.bt_down').click(function(){
+
+                            productNum = document.getElementById("num").value;
+                            if(productNum <= 1){
+                                return;
+                            }
+
+                            let n = $('.bt_down').index(this);
+                            let num = $(".num:eq("+n+")").val();
+                            num = $(".num:eq("+n+")").val(num*1-1);
+                        });
+                    })
+                </script>
+                <!--<h4>총가격 : <?php /*echo $row['price'];*/?>원</h4>-->
             </div>
             <div class="product-price-btn">
                 <?php
@@ -55,11 +85,13 @@ $row = mysqli_fetch_array($result);
                                 modal: true,
                                 buttons: {
                                     "네": function() {
-                                        location.href='shoppingCartInsert.php?idx=<?php echo $row['idx']; ?>&gotocart=true'
+                                        productNum = document.getElementById("num").value;
+                                        location.href='shoppingCartInsert.php?idx=<?php echo $row['idx']; ?>&gotocart=true&productNum='+productNum;
                                         $(this).dialog('close');
                                     },
                                     "아니요": function() {
-                                        location.href='shoppingCartInsert.php?idx=<?php echo $row['idx']; ?>&gotocart=false'
+                                        productNum = document.getElementById("num").value;
+                                        location.href='shoppingCartInsert.php?idx=<?php echo $row['idx']; ?>&gotocart=false&productNum='+productNum;
                                         $(this).dialog('close');
                                     }
                                 }
@@ -74,7 +106,6 @@ $row = mysqli_fetch_array($result);
     </div>
 
 </main>
-
 </body>
 
 </html>

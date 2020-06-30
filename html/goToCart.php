@@ -17,6 +17,7 @@ $mysqli_connect = connect_Mysqli();
     <table class="list-table">
         <tr>
             <th>상품정보</th>
+            <th>개수</th>
             <th>상품금액</th>
             <th>등록일</th>
         </tr>
@@ -35,7 +36,8 @@ $mysqli_connect = connect_Mysqli();
                         <div class="product_name"><?php echo $row['name'];?></div>
                     </div>
                 </td>
-                <td><?php echo $row['price'];?>원</td>
+                <td><?php echo $row['quantity'];?>개</td>
+                <td><?php echo $row['price']*$row['quantity'];?>원</td>
                 <td><?php echo $row['date']; ?></td>
             </tr>
             </tbody>
