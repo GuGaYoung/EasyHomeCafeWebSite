@@ -86,8 +86,9 @@ $mysqli_connect->query($sql);
             <div class="reply_content"><?php echo $row['content']; ?></div>
             <div class="reply_date"><?php echo $row['date']; ?></div>
             <div class="reply_edit_delete">
-                <a class="reply_edit" href="replyModifyOK.php">수정</a>
-                <a class="reply_delete" href="replyDeleteOK.php">삭제</a>
+                <a class="reply_edit" href="replyModifyOK.php?idx=<?php echo $row['idx']; ?>">수정</a>
+                <a class="reply_delete" href="replyDeleteOK.php?idx=<?php echo $row['idx']; ?>">삭제</a>
+
             </div>
             <hr>
         </div>
