@@ -28,7 +28,23 @@ $row = mysqli_fetch_array($result);
                 <p><?php echo $row['information'];?></p>
             </div>
             <div class="product-price-btn">
-                <button type="button" onClick="location.href='shoppingCart.php?idx=<?php echo $row['idx']; ?>'">장바구니 담기</button>
+                <?php
+                session_start();
+                if(empty($_SESSION['session_user_id'])){
+                    ?>
+                    <button type="button" onClick="notLoginStatus_click();">장바구니 담기</button>
+                    <script>
+                        function notLoginStatus_click() {
+                            alert("로그인을 해야 장바구니에 담을 수 있습니다.");
+                        }
+                    </script>
+                <?php
+                }else{
+                ?>
+                    <button type="button" onClick="location.href='shoppingCartInsert.php?idx=<?php echo $row['idx']; ?>'">장바구니 담기</button>
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>
