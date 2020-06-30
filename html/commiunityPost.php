@@ -11,6 +11,9 @@ $row = mysqli_fetch_array($result);
 $currentView = $row['view']+ 1;
 $sql = "UPDATE commiunity SET view='$currentView' WHERE idx = '$contentNum'";
 $mysqli_connect->query($sql);
+
+session_start();
+$user_idx = $_SESSION['session_user_idx'];
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +43,6 @@ $mysqli_connect->query($sql);
         </tr>
         <td colspan="3">
             <?php
-            $user_idx = $_SESSION['session_user_idx'];
 
             if($row['user_idx'] == $user_idx){
                 ?>
@@ -86,8 +88,26 @@ $mysqli_connect->query($sql);
             <div class="reply_content"><?php echo $row['content']; ?></div>
             <div class="reply_date"><?php echo $row['date']; ?></div>
             <div class="reply_edit_delete">
-                <a class="reply_edit" href="replyModifyOK.php?idx=<?php echo $row['idx']; ?>">수정</a>
-                <a class="reply_delete" href="replyDeleteOK.php?idx=<?php echo $row['idx']; ?>">삭제</a>
+                <?php
+
+                if($row['user_idx'] == $user_idx){
+                    ?>
+                    <button class="reply_edit" onClick="location.href='replyModifyOK.php?idx=<?php echo $row['idx']; ?>'">수정</button>
+                    <button class="reply_delete" onClick="location.href='replyDeleteOK.php?idx=<?php echo $row['idx']; ?>'">삭제</button>
+                <?php
+                }else{
+                ?>
+                    <button class="reply_edit" onclick="modifyDelete_button();">수정</button>
+                    <button class="reply_delete" onclick="modifyDelete_button();">삭제</button>
+                    <script>
+                        function modifyDelete_button() {
+                            alert("자신의 댓글만 삭제/수정할 수 있습니다.");
+                        }
+                    </script>
+                    <?php
+                }
+                ?>
+
 
             </div>
             <hr>
