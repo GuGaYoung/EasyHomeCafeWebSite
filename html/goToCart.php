@@ -31,8 +31,8 @@ $mysqli_connect = connect_Mysqli();
             <tr>
                 <td>
                     <div class="bak_item">
-                        <div class="pro_img"><img src="/shop/<?php echo $row['pro_pic'];?>.jpg" alt="propic" title="propic" /></div>
-                        <div class="pro_nt"><?php echo $row['name'];?></div>
+                        <img src=<?php echo $row['image'];?>>
+                        <div class="product_name"><?php echo $row['name'];?></div>
                     </div>
                 </td>
                 <td><?php echo $row['price'];?>원</td>

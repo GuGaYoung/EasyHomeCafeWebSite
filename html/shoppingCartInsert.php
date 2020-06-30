@@ -15,8 +15,9 @@ $row = mysqli_fetch_array($result);
 
 $productName = $row['name'];
 $productPrice = $row['price'];
+$productImage = $row['image'];
 
-$query = "insert into ordered_product(product_idx,user_idx,name,price,date) values('$productNum','$user_idx','$productName','$productPrice','$currentDate')";
+$query = "insert into ordered_product(product_idx,user_idx,name,price,date,image) values('$productNum','$user_idx','$productName','$productPrice','$currentDate','$productImage')";
 
 if($mysqli_connect->query($query) == true){
     if($isGoToCart == "true"){
@@ -29,4 +30,5 @@ if($mysqli_connect->query($query) == true){
     echo mysqli_error($mysqli_connect);
     echo "실패";
 }
+
 ?>

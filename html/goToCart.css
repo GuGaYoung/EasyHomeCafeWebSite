@@ -1,24 +1,48 @@
+h2{
+    margin-top: 20px;
+    text-align: center;
+}
+
+img{
+    width: 45%;
+    height:90%;
+}
+
 .list-table {
     margin-top: 40px;
     position: relative;
-
 }
+
+.list-table tr{
+    width: 100%;
+    text-align: center;
+}
+
 .list-table th{
+    width: 12%;
     height:40px;
     border-top:2px solid #09C;
     border-bottom:1px solid #CCC;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 18px;
 }
 .list-table tbody td{
+    width: 12%;
     text-align:center;
     padding:10px 0;
     border-bottom:1px solid	 #CCC; height:20px;
-    font-size: 14px
+    font-weight: bold;
+    font-size: 18px;
 }
 
 
 .bak_item {
     height: 170px;
     margin-top: 20px;
+}
+
+.product_name{
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
 }
