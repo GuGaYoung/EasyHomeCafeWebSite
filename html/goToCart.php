@@ -41,8 +41,17 @@ $mysqli_connect = connect_Mysqli();
                 <td><?php echo $row['date']; ?></td>
             </tr>
             </tbody>
-        <?php } ?>
-    </table>
+            <?php
+            $finalQuantity = $finalQuantity + $row['quantity'];
+            $finalPrice = $finalPrice + $row['price']*$row['quantity'];
+        }
+        echo "</table>";
+        echo "<div class=\"arrangement\">";
+        echo "<span class=\"finalQuantity\" >총개수 : $finalQuantity 개</span>";
+        echo "<span class=\"finalPrice\" >총가격 : $finalPrice 원</span>";
+        echo "<button class=\"paymentBtn btn btn-secondary\">결제하기</button>";
+        echo "</div>";
+        ?>
 </div>
 <footer></footer>
 </body>

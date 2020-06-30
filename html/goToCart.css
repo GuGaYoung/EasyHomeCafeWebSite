@@ -46,3 +46,29 @@ img{
     font-weight: bold;
     font-size: 18px;
 }
+
+.arrangement{
+    position:absolute;
+    left:50%;
+    margin-left:-250px;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.finalQuantity{
+    font-size: 20px;
+    font-weight: bold;
+    width: 20%;
+}
+
+.finalPrice{
+    margin-left: 240px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 20%;
+}
+
+.paymentBtn{
+    margin-left: 250px;
+    font-weight: bold;
+}
