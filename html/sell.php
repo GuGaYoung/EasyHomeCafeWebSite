@@ -39,6 +39,5 @@ $pageTotal = mysqli_num_rows($result);
     </div>
 
 </main>
-<script type="text/javascript" src="sell.js"></script>
 </body>
 </html>

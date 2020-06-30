@@ -13,45 +13,34 @@ $mysqli_connect = connect_Mysqli();
 <body>
 
 <div id="main_in">
-    <div id="menu">
-        <form action="/shop/search.php" method="post">
-            <div id="search_ser">
-                <ul>
-                    <b>상품검색 : </b>
-                    <input type="text" class="searchbox" name="inputSearchText">
-                    <button type="submit" class="searchBtn btn btn-secondary"></button>
-                </ul>
-            </div>
-        </form>
-    </div>
-    <div id="content">
-        <h2>장바구니</h2>
-        <table class="list-table">
+    <h2>장바구니</h2>
+    <table class="list-table">
+        <tr>
+            <th>상품정보</th>
+            <th>상품금액</th>
+            <th>등록일</th>
+        </tr>
+        <?php
+        session_start();
+        $user_idx = $_SESSION['session_user_idx'];
+        $query = "select * from ordered_product where user_idx='".$user_idx."' order by idx desc";
+        $result = mysqli_query($mysqli_connect, $query);
+        while($row=$result->fetch_array()){
+            ?>
+            <tbody>
             <tr>
-                <th width="5%">상품정보</th>
-                <th width="5%">상품금액</th>
-                <th width="5%">등록일</th>
+                <td>
+                    <div class="bak_item">
+                        <div class="pro_img"><img src="/shop/<?php echo $row['pro_pic'];?>.jpg" alt="propic" title="propic" /></div>
+                        <div class="pro_nt"><?php echo $row['name'];?></div>
+                    </div>
+                </td>
+                <td><?php echo $row['price'];?>원</td>
+                <td><?php echo $row['date']; ?></td>
             </tr>
-            <?php
-            $query = "select * from ordered_product order by idx desc";
-            $result = mysqli_query($mysqli_connect, $query);
-            while($row=$result->fetch_array()){
-                ?>
-                <tbody>
-                <tr>
-                    <td width="5%">
-                        <div class="bak_item">
-                            <!-- <div class="pro_img"><img src="/shop/<?php /*echo $row['pro_pic'];*/?>.jpg" alt="propic" title="propic" /></div>-->
-                            <div class="pro_nt"><?php echo $row['name'];?></div>
-                        </div>
-                    </td>
-                    <td width="5%"><?php echo $row['price'];?>원</td>
-                    <td width="5%"><?php echo $row['date']; ?></td>
-                </tr>
-                </tbody>
-            <?php } ?>
-        </table>
-    </div>
+            </tbody>
+        <?php } ?>
+    </table>
 </div>
 <footer></footer>
 </body>
