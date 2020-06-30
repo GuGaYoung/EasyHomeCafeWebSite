@@ -19,7 +19,7 @@ $row = mysqli_fetch_array($result);
 <main>
     <div class="wrapper">
         <div class="product-img">
-            <img src="image/ice.png">
+            <img src= <?php echo $row[image];?>>
         </div>
         <div class="product-info">
             <div class="product-text">
