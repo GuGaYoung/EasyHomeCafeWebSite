@@ -1,0 +1,20 @@
+
+.findIdText{
+    margin-top: 2%;
+    text-align: center;
+}
+
+.findIdForm{
+    margin-top: 130px;
+}
+
+.form-group {
+    width: 400px;
+}
+
+.btn{
+    width: 30%;
+    margin: 5%;
+    margin-left: 37%;
+    text-align: center;
+}
