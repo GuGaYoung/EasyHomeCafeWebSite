@@ -4,6 +4,11 @@ $mysqli_connect = connect_Mysqli();
 session_start();
 $user_id = $_SESSION['session_user_id'];
 $user_idx = $_SESSION['session_user_idx'];
+
+$query = "select * from user where idx='$user_idx'";
+$result = mysqli_query($mysqli_connect, $query);
+$row = mysqli_fetch_array($result);
+$email = $row['email'];
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +36,7 @@ $user_idx = $_SESSION['session_user_idx'];
     <h2>내 정보</h2>
     <div class="myInfoText">
         <p>닉네임 :<?php echo $user_id;?>님</p>
-        <p>이메일 : 입력안함</p>
+        <p>이메일 :<?php echo $email;?></p>
         <button class="writeBtn btn btn-secondary">수정</button>
         <button class="writeBtn btn btn-secondary" onClick="logout_button();">로그아웃</button>
     </div>
