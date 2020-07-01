@@ -14,18 +14,17 @@ include "headerNav.php";
 <body>
 
 <main>
-    <form method="post" class="logInForm" action='login_check.php'>
-        <h1 class="logInText">아이디 찾기</h1>
-            <div class="mx-auto form-group">
-                <label for="inputName">이름</label>
-                <input type="text" class="form-control" name="inputName">
-            </div>
-            <div class="mx-auto form-group">
-                <label for="inputEmail">이메일</label>
-                <input type="text" class="form-control" name="inputEmail">
-                <button type="submit" class="btn btn-secondary"> 찾기 </button>
-            </div>
-
+    <form method="post" class="findIdForm" action='findIdCheck.php'>
+        <h1 class="findIdText">아이디 찾기</h1>
+        <div class="mx-auto form-group">
+            <label for="inputName">이름</label>
+            <input type="text" class="form-control" name="inputName">
+        </div>
+        <div class="mx-auto form-group">
+            <label for="inputEmail">이메일</label>
+            <input type="text" class="form-control" name="inputEmail">
+        </div>
+        <button type="submit" class="btn btn-secondary"> 찾기 </button>
     </form>
 </main>
 </body>
