@@ -35,7 +35,7 @@ include "headerNav.php";
             </div>
             <div class="mx-auto form-group">
                 <a href="findId.php" class="linkFind">아이디</a>
-                <a href="/member/find/password" class="linkFind">비밀번호 찾기</a>
+                <a href="findpassword.php" class="linkFind">비밀번호 찾기</a>
                 <a href="signup.html" class="signUp">회원가입</a>
             </div>
         </div>
