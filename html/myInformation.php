@@ -1,8 +1,9 @@
 <?php
 include "headerNav.php";
+$mysqli_connect = connect_Mysqli();
 session_start();
-$session_user_id = $_SESSION['session_user_id'];
-
+$user_id = $_SESSION['session_user_id'];
+$user_idx = $_SESSION['session_user_idx'];
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@ $session_user_id = $_SESSION['session_user_id'];
 <main>
     <h2>내 정보</h2>
     <div class="myInfoText">
-        <p>닉네임 :<?php echo $session_user_id;?>님</p>
+        <p>닉네임 :<?php echo $user_id;?>님</p>
         <p>이메일 : 입력안함</p>
         <button class="writeBtn btn btn-secondary">수정</button>
         <button class="writeBtn btn btn-secondary" onClick="logout_button();">로그아웃</button>
@@ -39,73 +40,40 @@ $session_user_id = $_SESSION['session_user_id'];
     <h2>최근 본 상품</h2>
     <h6><a class ="productDetails_recently" href=#>자세히보기</a></h6>
     <div class="row row-cols-1 row-cols-md-5" style="width: 100%;">
-        <div class="col mb-4"></div>
         <div class="col mb-4">
             <div class="productCard card">
-                <img src="image/coffeeMachine.png" class="productImage card-img-top">
+                <img src="image/coffeeMachine.png"  height="180px" class="productImage card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">커피머신</h5>
                     <p class="card-text">가성비 커피머신 136000원</p>
                 </div>
             </div>
         </div>
-        <div class="col mb-4">
-            <div class="productCard card">
-                <img src="image/fruitdrink.jpg" class="productImage card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">과일음료</h5>
-                    <p class="card-text">파인애플주스 3500원</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col mb-4">
-            <div class="productCard card">
-                <img src="image/americano.png" class="productImage card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">아메리카노</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-4"></div>
     </div>
     <hr>
 
     <h2>장바구니에 담은 상품</h2>
     <h6><a class ="productDetails_cart" href=goToCart.php>자세히보기</a></h6>
     <div class="row row-cols-1 row-cols-md-5" style="width: 100%;">
-        <div class="col mb-4"></div>
-        <div class="col mb-4">
-            <div class="productCard card">
-                <img src="image/coffeeMachine.png" class="productImage card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">커피머신</h5>
-                    <p class="card-text">가성비 커피머신 136000원</p>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-4">
-            <div class="productCard card">
-                <img src="image/fruitdrink.jpg" class="productImage card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">과일음료</h5>
-                    <p class="card-text">파인애플주스 3500원</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="col mb-4">
-            <div class="productCard card">
-                <img src="image/americano.png" class="productImage card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">아메리카노</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        <?php
+        $query = "select * from ordered_product where user_idx='".$user_idx."' order by idx desc limit 5";
+        $result = mysqli_query($mysqli_connect, $query);
+        while($row=$result->fetch_array()){
+            ?>
+            <div class="col mb-4">
+                <div class="productCard card">
+                    <img class="productImage card-img-top" height="180px" src=<?php echo $row['image'];?>>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $row['name'];?></h5>
+                        <p class="card-text"><?php echo $row['information']+$row['price'];?></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <hr>
+            <?php
+        }
+        ?>
+        <hr>
 </main>
 </body>
 </html>
