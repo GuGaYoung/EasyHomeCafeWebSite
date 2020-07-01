@@ -6,6 +6,35 @@ $productNum = $_GET['idx'];
 $query = "select * from product where idx='$productNum'";
 $result = mysqli_query($mysqli_connect, $query);
 $row = mysqli_fetch_array($result);
+
+session_start();
+if(!isset($_SESSION['$recent_product_history']) ){
+
+    $item_array = array(
+        'item_idx' => $row['idx'],
+        'item_name' => $row['name'],
+        'item_information' => $row['information'],
+        'item_price' => $row['price'],
+        'item_image' => $row["image"]
+    );
+    $_SESSION['$recent_product_history'][0] = $item_array;
+
+}else{
+    //shopping_cart 세션 배열에 들어있는 배열의 수
+    $count = count($_SESSION['$recent_product_history']);
+
+    //클릭한 상품의 데이터를 배열에 넣는다.
+    $item_array = array(
+        'item_idx' => $row['idx'],
+        'item_name' => $row['name'],
+        'item_information' => $row['information'],
+        'item_price' => $row['price'],
+        'item_image' => $row["image"]
+    );
+
+    //$recent_product_history 세션 배열에서 그 다음 방부터 차례로 넣는다.
+    $_SESSION['$recent_product_history'][$count] = $item_array;
+}
 ?>
 
 <html lang="en">
@@ -58,7 +87,6 @@ $row = mysqli_fetch_array($result);
                         });
                     })
                 </script>
-                <!--<h4>총가격 : <?php /*echo $row['price'];*/?>원</h4>-->
             </div>
             <div class="product-price-btn">
                 <?php

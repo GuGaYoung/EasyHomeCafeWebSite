@@ -38,17 +38,23 @@ $user_idx = $_SESSION['session_user_idx'];
     <hr>
 
     <h2>최근 본 상품</h2>
-    <h6><a class ="productDetails_recently" href=#>자세히보기</a></h6>
     <div class="row row-cols-1 row-cols-md-5" style="width: 100%;">
-        <div class="col mb-4">
-            <div class="productCard card">
-                <img src="image/coffeeMachine.png"  height="180px" class="productImage card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">커피머신</h5>
-                    <p class="card-text">가성비 커피머신 136000원</p>
+        <?php
+        foreach($_SESSION['$recent_product_history'] as $keys => $values) {
+
+            ?>
+            <div class="col mb-4">
+                <div class="productCard card">
+                    <img height="180px" class="productImage card-img-top" src=<?php echo $values[item_image]; ?>>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $values["item_name"]; ?></h5>
+                        <p class="card-text"><?php echo $values["item_information"]+$values["item_price"]; ?></p>
+                    </div>
                 </div>
             </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
     <hr>
 
