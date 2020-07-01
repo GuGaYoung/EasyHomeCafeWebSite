@@ -35,7 +35,7 @@ $row = mysqli_fetch_array($result);
             <tr>
                 <th>내용: </th>
                 <td height="500">
-                    <div><textarea><?php echo $row['content'];?></textarea></div>
+                    <div><textarea cols="100%" rows="20%" name="content" ><?php echo $row['content'];?></textarea></div>
                 </td>
             </tr>
             <tr>
