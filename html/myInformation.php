@@ -37,7 +37,7 @@ $session_user_id = $_SESSION['session_user_id'];
     <hr>
 
     <h2>최근 본 상품</h2>
-    <h6><a class ="productDetails_recently" href=#>더보기</a></h6>
+    <h6><a class ="productDetails_recently" href=#>자세히보기</a></h6>
     <div class="row row-cols-1 row-cols-md-5" style="width: 100%;">
         <div class="col mb-4"></div>
         <div class="col mb-4">
@@ -73,7 +73,7 @@ $session_user_id = $_SESSION['session_user_id'];
     <hr>
 
     <h2>장바구니에 담은 상품</h2>
-    <h6><a class ="productDetails_cart" href=goToCart.php>더보기</a></h6>
+    <h6><a class ="productDetails_cart" href=goToCart.php>자세히보기</a></h6>
     <div class="row row-cols-1 row-cols-md-5" style="width: 100%;">
         <div class="col mb-4"></div>
         <div class="col mb-4">
