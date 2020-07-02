@@ -48,7 +48,7 @@ $result = $mysqli_connect->query($sql);
             <tbody class="border border-secondary">
 
             <?php
-
+            //데이터베이스에 있는 데이터들을 셋팅
             while($row=$result->fetch_array()){
 
                 echo "<tr>";
@@ -65,6 +65,8 @@ $result = $mysqli_connect->query($sql);
     </ul>
 
     <?php
+    //세션에 유저 아이디가 저장되어있지 않다면(로그인을 하지 않았다면)
+    //글을 쓰지 못하도록 alert창을 띄운다.
     session_start();
     if(empty($_SESSION['session_user_id'])){
         ?>
@@ -83,8 +85,11 @@ $result = $mysqli_connect->query($sql);
     ?>
 
     <?php
+    //페이지 수 -> 총 게시물 수 /한 페이지에 몇개의 게시물을 넣을 것인지
+    //todo pageNum -> NumOfContentInOnePage
     $pages = $pageTotal / $listSize;
 
+    //페이지수 만큼 버튼을 제작
     echo "<div class = pagination>";
     for($i=0; $i<$pages; $i++){
         $nextPage = $listSize * $i;
