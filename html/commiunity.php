@@ -3,13 +3,18 @@
 include "headerNav.php";
 $mysqli_connect = connect_Mysqli();
 
-$pageNum = 6;
+//한 페이지에 몇개의 커뮤니티가 들어가는지 -> 기획상 6개로 적용
+$listSize = 6;
+
+//몇개의 페이지로 나눌지 정하기 위해 총 게시물의 수를 가져온다.
 $query = "select * from commiunity";
 $data = mysqli_query($mysqli_connect, $query);
 $pageTotal = mysqli_num_rows($data);
+
+//몇개부터 몇개까지 보여줄건지 정한다.
 $start = $_GET['start'];
 if(!$start) $start=0;
-$sql = "SELECT * FROM commiunity ORDER BY idx DESC limit $start, $pageNum";
+$sql = "SELECT * FROM commiunity ORDER BY idx DESC limit $start, $listSize";
 $result = $mysqli_connect->query($sql);
 ?>
 
@@ -24,7 +29,7 @@ $result = $mysqli_connect->query($sql);
 </head>
 <body>
 
-<br />
+<br/>
 <main>
     <form method="GET" class="searchForm" action="searchResults.php">
         <b>검색 : </b>
@@ -78,11 +83,11 @@ $result = $mysqli_connect->query($sql);
     ?>
 
     <?php
-    $pages = $pageTotal / $pageNum;
+    $pages = $pageTotal / $listSize;
 
     echo "<div class = pagination>";
     for($i=0; $i<$pages; $i++){
-        $nextPage = $pageNum * $i;
+        $nextPage = $listSize * $i;
         $pageButtonNum = $i+1;
         echo "<button><a href=$_SERVER[PHP_SELF]?start=$nextPage>$pageButtonNum</a></button>";
     }
