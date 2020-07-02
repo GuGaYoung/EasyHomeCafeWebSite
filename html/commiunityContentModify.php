@@ -4,6 +4,7 @@ include "headerNav.php";
 $mysqli_connect = connect_Mysqli();
 $contentNum = $_GET['idx'];
 
+//인덱스에 해당하는 게시물을 찾는다.
 $query = "select * from commiunity where idx='$contentNum'";
 $result = mysqli_query($mysqli_connect, $query);
 $row = mysqli_fetch_array($result);
@@ -27,6 +28,7 @@ $row = mysqli_fetch_array($result);
         <h3 class="writeText"> 글 수정 </h3>
         </thead>
         <tbody>
+        <!--게시물에 작성되었던 글을 수정할 수 있도록 셋팅-->
         <form action="commiunityContentModifyOK.php?idx=<?php echo $row['idx'];?>" method="post" enctype="multipart/form-data">
             <tr>
                 <th>제목: </th>
