@@ -3,11 +3,14 @@ include "headerNav.php";
 $mysqli_connect = connect_Mysqli();
 $productNum = $_GET['idx'];
 
+//idx에 해당하는 상품의 정보를 받아온다.
 $query = "select * from product where idx='$productNum'";
 $result = mysqli_query($mysqli_connect, $query);
 $row = mysqli_fetch_array($result);
 
+//"recent_product_history"이라는 세션에 상품의 정보를 넣는다.
 session_start();
+//"recent_product_history"이라는 세션이 없다면 제작 후 정보를 넣는다.
 if(!isset($_SESSION['$recent_product_history']) ){
 
     $item_array = array(
@@ -51,6 +54,7 @@ if(!isset($_SESSION['$recent_product_history']) ){
 <main>
     <div class="wrapper">
         <div class="product-img">
+            <!--선택한 상품의 정보를 띄운다.-->
             <img src= <?php echo $row[image];?>>
         </div>
         <div class="product-info">
@@ -66,14 +70,18 @@ if(!isset($_SESSION['$recent_product_history']) ){
                 <span>개</span>
 
                 <script>
+                    //수량선택
+
+                    //수량 초기 값
                     let productNum = 1;
                     $(function(){
-
+                        //위 버튼을 눌렀을 때 수량이 증가
                         $('.bt_up').click(function(){
                             let n = $('.bt_up').index(this);
                             let num = $(".num:eq("+n+")").val();
                             num = $(".num:eq("+n+")").val(num*1+1);
                         });
+                        //아래 버튼을 눌렀을 때 수량이 감소 1이하로 내려가지 않도록 제한
                         $('.bt_down').click(function(){
 
                             productNum = document.getElementById("num").value;
@@ -90,6 +98,8 @@ if(!isset($_SESSION['$recent_product_history']) ){
             </div>
             <div class="product-price-btn">
                 <?php
+                //세션에 유저 아이디가 저장되어있지 않다면(로그인을 하지 않았다면)
+                //장바구니에 상품을 넣지 못하도록 한다.
                 session_start();
                 if(empty($_SESSION['session_user_id'])){
                     ?>
@@ -101,6 +111,8 @@ if(!isset($_SESSION['$recent_product_history']) ){
                     </script>
                 <?php
                 }else{
+                //로그인을 한 상태에서 장바구니에 넣었을때
+                //장바구니로 이동할 것인지 아니면 해당 페이지에 머무를 것인지 정할수 있도록 구현
                 ?>
                     <button type="button" onClick="IsGoToCart()">장바구니 담기</button>
                     <div id="dialog-message" title="상품이 장바구니에 담겼습니다." style='display:none'>
