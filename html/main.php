@@ -15,15 +15,16 @@ include "headerNav.php";
 </head>
 
 <?php
-    if(empty($_COOKIE['popname'])){
+//isPopUpDeleted 라는 쿠키가 없다면 팝업창을 띄운다.
+if(empty($_COOKIE['isPopUpDeleted'])){
 ?>
 <body onload="window.open('popup.php','','width=500px, height=600px, left=200px, top=200px, toolbar=0, status=yes, menubars=0, scrollbars=0, resizable=0, location=0, directories=0')">
 <?php
-    }else{
+}else{
 ?>
 <body>
 <?php
-    }
+}
 ?>
 
 <main class="main">
@@ -89,7 +90,3 @@ include "headerNav.php";
 </body>
 
 </html>
-
-
-
-
