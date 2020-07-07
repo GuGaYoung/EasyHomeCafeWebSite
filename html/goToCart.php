@@ -25,6 +25,7 @@ $mysqli_connect = connect_Mysqli();
             <th></th>
         </tr>
         <?php
+        //사용자가 장바구니에 담은 상품들을 가져와 보여준다.
         session_start();
         $user_idx = $_SESSION['session_user_idx'];
         $query = "select * from ordered_product where user_idx='".$user_idx."' order by idx desc";
@@ -46,6 +47,7 @@ $mysqli_connect = connect_Mysqli();
             </tr>
             </tbody>
             <?php
+            //총 개수와 총 가격을 측정해 보여준다.
             $finalQuantity = $finalQuantity + $row['quantity'];
             $finalPrice = $finalPrice + $row['price']*$row['quantity'];
         }
@@ -58,6 +60,7 @@ $mysqli_connect = connect_Mysqli();
         ?>
 
 </div>
+<!--결제-->
 <script src="payment.js"></script>
 </body>
 </html>
