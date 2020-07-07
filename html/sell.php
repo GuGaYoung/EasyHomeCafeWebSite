@@ -2,9 +2,9 @@
 include "headerNav.php";
 $mysqli_connect = connect_Mysqli();
 
+//상품들의 정보를 데이터베이스에서 가져온다
 $sql = "SELECT * FROM product ORDER BY idx DESC";
 $result = $mysqli_connect->query($sql);
-$pageTotal = mysqli_num_rows($result);
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +23,7 @@ $pageTotal = mysqli_num_rows($result);
     <div class="row row-cols-1 row-cols-md-4" style="width: 100%;">
 
         <?php
+        //상품 데이터들을 셋팅
         while($row=$result->fetch_array()){
             echo "<div class=\"col mb-4\">";
             echo "<div class=\"productCard card\">";
