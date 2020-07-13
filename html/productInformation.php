@@ -47,7 +47,6 @@ if(!isset($_SESSION['$recent_product_history']) ){
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="productInformation.css">
 </head>
 
@@ -79,7 +78,7 @@ if(!isset($_SESSION['$recent_product_history']) ){
                         $('.bt_up').click(function(){
                             let n = $('.bt_up').index(this);
                             let num = $(".num:eq("+n+")").val();
-                            num = $(".num:eq("+n+")").val(num*1+1);
+                            num = $(".num:eq("+n+")").val(num+1);
                         });
                         //아래 버튼을 눌렀을 때 수량이 감소 1이하로 내려가지 않도록 제한
                         $('.bt_down').click(function(){
@@ -91,7 +90,7 @@ if(!isset($_SESSION['$recent_product_history']) ){
 
                             let n = $('.bt_down').index(this);
                             let num = $(".num:eq("+n+")").val();
-                            num = $(".num:eq("+n+")").val(num*1-1);
+                            num = $(".num:eq("+n+")").val(num-1);
                         });
                     })
                 </script>

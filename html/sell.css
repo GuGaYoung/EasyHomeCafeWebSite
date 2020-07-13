@@ -35,3 +35,8 @@ a:hover { color: white; text-decoration: underline;}
     width: 98%;
     height: 70%;
 }
+
+.postBtn{
+    float: right;
+    margin: 15px;
+}

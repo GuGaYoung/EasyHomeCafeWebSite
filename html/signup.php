@@ -56,7 +56,7 @@ if($name == ''){
 //echo '올바른 이메일 주소가 맞습니다.';
 
 //이제부터 넣기 시작
-$sql = "INSERT INTO user (id, password, email) VALUES('$id','$encrypted_passwd','$email')";
+$sql = "INSERT INTO user (id, password, name, email) VALUES('$id','$encrypted_passwd','$name', '$email')";
 
 if($mysqli_connect->query($sql) === true){
     //echo '회원가입 성공';

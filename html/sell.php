@@ -5,6 +5,7 @@ $mysqli_connect = connect_Mysqli();
 //상품들의 정보를 데이터베이스에서 가져온다
 $sql = "SELECT * FROM product ORDER BY idx DESC";
 $result = $mysqli_connect->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +16,21 @@ $result = $mysqli_connect->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sell.css">
     <title>EasyHomeCafe-sell</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
 <body>
 <main class="main">
-    <div class="row row-cols-1 row-cols-md-4" style="width: 100%;">
 
+    <!--관리자만 상품을 올리는 버튼을 보여줌-->
+    <?php
+        if($_SESSION['session_user_id'] == "manager"){
+    ?>
+    <button class="postBtn btn btn-secondary" onClick="location.href='postProduct.php'">상품올리기</button>
+    <?php
+    }
+    ?>
+
+    <div class="row row-cols-1 row-cols-md-4" style="width: 100%;">
         <?php
         //상품 데이터들을 셋팅
         while($row=$result->fetch_array()){

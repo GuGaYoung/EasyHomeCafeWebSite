@@ -2,31 +2,17 @@
 include "headerNav.php";
 $mysqli_connect = connect_Mysqli();
 
-//사용자가 작성한 게시물 정보를 가져온다.
-$title = $_POST["title"];
-$content = $_POST["content"];
-
-
-$query = "select * from commiunity";
-$data = mysqli_query($mysqli_connect, $query);
-
-//게시물에 표시할 게시물 수
-$contentsNum = mysqli_num_rows($data) + 1;
-//게시물에 표시할 날짜
-$currentDate = date("Y-m-d", time());
-
-//게시물에 표시할 유저 아이디
-session_start();
-$user_id = $_SESSION['session_user_id'];
-$user_idx = $_SESSION['session_user_idx'];
+//등록할 상품의 정보를 가져온다.
+$name = $_POST["name"];
+$price = $_POST["price"];
+$information = $_POST["information"];
 
 //이미지를 넣었다면
 if(basename($_FILES["image"]["name"]) != null){
 
-    //이미지의 경로를 정하고 이미지 이름을 수정
-    //이미지의 이름을 곂치지 않게 하기 위해 원래이미지의 이름 + 날짜,시분초로 수정
+    //이미지의 경로를 정하기
     $target_dir = "image/";
-    $target_file = $target_dir.date("Y.m.d.H:i:s").basename($_FILES["image"]["name"]);
+    $target_file = $target_dir.basename($_FILES["image"]["name"]);
     //업로드가 제대로 됬다면 1 아니라면 0
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -66,10 +52,10 @@ if(basename($_FILES["image"]["name"]) != null){
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
 
-            $sql = "INSERT INTO commiunity (user_idx, title, content, image, date, writer) VALUES ('$user_idx', '$title', '$content', '$target_file', '$currentDate', '$user_id')";
+            $sql = "INSERT INTO product (name, price, information, image) VALUES ('$name', '$price', '$information', '$target_file')";
 
             if($mysqli_connect->query($sql) === true){
-                echo "<script>location.href='commiunityPost.php?idx=$contentsNum'</script>";
+                echo "<script>location.href='sell.php'</script>";
 
             }else{
                 echo mysqli_error($mysqli_connect);
@@ -84,10 +70,10 @@ if(basename($_FILES["image"]["name"]) != null){
     //이미지를 넣지 않고 게시물을 작성했다면
 }else{
     //게시물 정보들을 데이터베이스 안에 넣는다.
-    $sql = "INSERT INTO commiunity (user_idx, title, content, date, writer) VALUES ('$user_idx', '$title', '$content', '$currentDate', '$user_id')";
+    $sql = "INSERT INTO product (name, price, information) VALUES ('$name', '$price', '$information')";
 
     if($mysqli_connect->query($sql) === true){
-        echo "<script>location.href='commiunityPost.php?idx=$contentsNum'</script>";
+        echo "<script>location.href='sell.php'</script>";
 
     }else{
         echo mysqli_error($mysqli_connect);

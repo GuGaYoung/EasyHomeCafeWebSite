@@ -2,6 +2,8 @@
 include "headerNav.php";
 $mysqli_connect = connect_Mysqli();
 
+ini_set("display_errors", "1");
+
 //사용자가 작성한 게시물 정보를 가져온다.
 $title = $_POST["title"];
 $content = $_POST["content"];
@@ -64,6 +66,7 @@ if(basename($_FILES["image"]["name"]) != null){
 
         } else {
             echo '<script type="text/javascript">alert("파일이 업로드 되는 중에 에러가 발생했습니다.");</script>';
+            echo "<script>history.back();</script>";
         }
     }
     //이미지를 넣지 않고 게시물을 작성했다면

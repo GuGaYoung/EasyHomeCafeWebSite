@@ -1,20 +1,20 @@
 <?php
-include "headerNav.php";
-$mysqli_connect = connect_Mysqli();
-$contentNum = $_GET['idx'];
+    include "headerNav.php";
+    $mysqli_connect = connect_Mysqli();
+    $contentNum = $_GET['idx'];
 
-//인덱스에 해당하는 게시물을 가져온다.
-$query = "select * from commiunity where idx='$contentNum'";
-$result = mysqli_query($mysqli_connect, $query);
-$row = mysqli_fetch_array($result);
+    //인덱스에 해당하는 게시물을 가져온다.
+    $query = "select * from commiunity where idx='$contentNum'";
+    $result = mysqli_query($mysqli_connect, $query);
+    $row = mysqli_fetch_array($result);
 
-//해당 게시물을 방문할 때 마다 조회수가 늘어나도록 한다.
-$currentView = $row['view']+ 1;
-$sql = "UPDATE commiunity SET view='$currentView' WHERE idx = '$contentNum'";
-$mysqli_connect->query($sql);
+    //해당 게시물을 방문할 때 마다 조회수가 늘어나도록 한다.
+    $currentView = $row['view']+ 1;
+    $sql = "UPDATE commiunity SET view='$currentView' WHERE idx = '$contentNum'";
+    $mysqli_connect->query($sql);
 
-session_start();
-$user_idx = $_SESSION['session_user_idx'];
+    session_start();
+    $user_idx = $_SESSION['session_user_idx'];
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,6 @@ $user_idx = $_SESSION['session_user_idx'];
     <title>EasyHomeCafe-commiunitypost</title>
     <script src="reply.js"></script>
     <link rel="stylesheet" href="commiunityPost.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
 <body>

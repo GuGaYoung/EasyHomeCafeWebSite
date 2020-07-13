@@ -42,7 +42,7 @@ $row = mysqli_fetch_array($result);
             </tr>
             <tr>
                 <th>첨부파일: </th>
-                <td><input type="file" placeholder="이미지를 선택하세요." name="image" /></td>
+                <td><input type="file" placeholder="이미지를 선택하세요." name="image"/></td>
             </tr>
             <tr>
                 <td colspan="2">

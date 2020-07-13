@@ -18,13 +18,11 @@ $email = $row['email'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="myInformation.css">
     <title>EasyHomeCafe-myInformation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script>
         //todo 로그아웃을 하면 저장된 세션을 삭제
         function logout_button() {
             <?php
-            //session_destroy();
-            //unset( $_SESSION['session_user_id'] );
+            unset( $_SESSION['session_user_id'] );
             ?>
             location.href="login.php";
         }
@@ -37,8 +35,8 @@ $email = $row['email'];
     <div class="myInfoText">
         <p>닉네임 :<?php echo $user_id;?>님</p>
         <p>이메일 :<?php echo $email;?></p>
-        <button class="writeBtn btn btn-secondary">수정</button>
-        <button class="writeBtn btn btn-secondary" onClick="logout_button();">로그아웃</button>
+        <button class="modifyprofileBtn btn btn-secondary">수정</button>
+        <button class="logoutBtn btn btn-secondary" onClick="logout_button();">로그아웃</button>
     </div>
     <hr>
 
